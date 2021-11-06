@@ -12,13 +12,13 @@ const Detail = () => import('../views/home/detail.vue')
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/login',
-  //   component: Login
-  // },
+  {
+    path: '/login',
+    component: Login
+  },
   {
     path: '/',
-    component: Login
+    redirect: '/login'
   },
   // 登录之后页面 是layout公共的页面布局组件
   // 分层，为后面权限做铺垫----细腻

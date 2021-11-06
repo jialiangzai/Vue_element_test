@@ -5,7 +5,7 @@
       <el-form ref="form" :model="formd" label-width="80px" :rules="rules">
         <!-- 表单项 手机号-->
         <el-form-item label="手机号" prop="mobile">
-          <el-input v-model="formd.mobile"></el-input>
+          <el-input v-model.trim.lazy="formd.mobile"></el-input>
         </el-form-item>
         <!-- 表单项 验证码 -->
         <el-form-item label="验证码" prop="code">
@@ -50,10 +50,11 @@ export default {
       rules: {
         mobile: [
           { required: true, message: '请输入手机号', trigger: 'blur' },
-          { validator: validateMobile, trigger: 'blur' }
+          { validator: validateMobile, trigger: 'change' }
           // { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'change' }
         ],
         code: [
+          { required: true, message: '请输入验证码', trigger: 'blur' },
           { min: 4, max: 8, message: '长度在 4 到 8 个字符', trigger: 'change' }
         ]
       }
